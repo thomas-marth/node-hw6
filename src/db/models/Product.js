@@ -5,9 +5,9 @@ const Product = sequelize.define('product', {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
-    validate: {
-      notEmpty: {
-        msg: 'Name is required',
+    unique: {
+      args: {
+        msg: 'Product already exists',
       },
     },
   },

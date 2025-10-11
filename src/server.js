@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 
-import productsRouter from './routers/productsRoutes.js';
+import productsRouter from './routers/products.router.js';
 import notFoundHandler from './middlewares/notFoundHandler.js';
 import errorHandler from './middlewares/errorHandler.js';
 
@@ -15,7 +15,7 @@ const startServer = () => {
     res.send('<h1>Hello, World!</h1>');
   });
 
-  app.use('/products', productsRouter);
+  app.use('api/products', productsRouter);
 
   app.use(notFoundHandler);
   app.use(errorHandler);
