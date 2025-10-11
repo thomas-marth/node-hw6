@@ -15,7 +15,7 @@ const startServer = () => {
     res.send('<h1>Hello, World!</h1>');
   });
 
-  app.use('api/products', productsRouter);
+  app.use('/api/products', productsRouter);
 
   app.use(notFoundHandler);
   app.use(errorHandler);
