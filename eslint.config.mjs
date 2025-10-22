@@ -1,29 +1,30 @@
-import js from "@eslint/js";
-import globals from "globals";
-import json from "@eslint/json";
-import { defineConfig } from "eslint/config";
+import js from '@eslint/js';
+import globals from 'globals';
+import json from '@eslint/json';
+import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
-    files: ["**/*.{js,mjs,cjs}"],
+    files: ['**/*.{js,mjs,cjs}'],
     plugins: { js },
-    extends: ["js/recommended"],
+    extends: ['js/recommended'],
     languageOptions: { globals: globals.node },
     rules: {
-      "no-unused-vars": "warn",
-      eqeqeq: "error",
+      ...js.configs.recommended.rules,
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      eqeqeq: 'error',
     },
   },
   {
-    files: ["**/*.json"],
+    files: ['**/*.json'],
     plugins: { json },
-    language: "json/json",
-    extends: ["json/recommended"],
+    language: 'json/json',
+    extends: ['json/recommended'],
   },
   {
-    files: ["**/*.jsonc"],
+    files: ['**/*.jsonc'],
     plugins: { json },
-    language: "json/jsonc",
-    extends: ["json/recommended"],
+    language: 'json/jsonc',
+    extends: ['json/recommended'],
   },
 ]);

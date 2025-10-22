@@ -7,6 +7,7 @@ import errorHandler from './middlewares/errorHandler.js';
 
 const startServer = () => {
   const app = express();
+  const port = Number(process.env.PORT) || 3000;
 
   app.use(cors());
   app.use(express.json());
@@ -20,7 +21,6 @@ const startServer = () => {
   app.use(notFoundHandler);
   app.use(errorHandler);
 
-  const port = Number(process.env.PORT) || 3000;
   app.listen(port, () => console.log(`Server running on ${port} port.`));
 };
 
